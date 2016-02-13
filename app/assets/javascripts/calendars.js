@@ -33,7 +33,7 @@ $(document).ready(function () {
         // カレンダーの縦横比(比率が大きくなると高さが縮む)
         //aspectRatio: 1.35,
         // 初期表示ビュー
-        defaultView: 'basicWeek',
+        defaultView: 'agendaWeek',
         // 終日スロットを表示
         allDaySlot: true,
         // 終日スロットのタイトル
@@ -95,23 +95,25 @@ $(document).ready(function () {
         unselectAuto: true,
         // 自動選択解除対象外の要素
         unselectCancel: '',
+        // event追加を許可
+        selectable: true,
         // イベントソース
         eventSources: [
             {
                 events: [
                     {
                         title: 'event1',
-                        start: '2016-02-04'
+                        start: '2016-02-14'
                     },
                     {
                         title: 'event2',
-                        start: '2016-02-08',
-                        end: '2013-02-12'
+                        start: '2016-02-12',
+                        end: '2013-02-13'
                     },
                     {
                         title: 'event3',
-                        start: '2016-02-03 11:30:00',
-                        end: '2016-02-03 15:30:00',
+                        start: '2016-02-12 11:30:00',
+                        end: '2016-02-13 15:30:00',
                         allDay: false // will make the time show
                     }
                 ]
