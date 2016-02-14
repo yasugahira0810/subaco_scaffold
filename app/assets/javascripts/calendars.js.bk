@@ -1,23 +1,6 @@
 $(document).ready(function () {
-    var select = function(start, end, allDay) {
-        var title = window.prompt("title");
-        var data = {event: {title: title,
-                            start: start,
-                            end: end, 
-                            allDay: allDay}};
-        $.ajax({
-            type: "POST",
-            url: "/events",
-        }).done(function(data) {
-            alert('SUCEESS!!!');
-            calendar.fullCalendar('refetchEvents');
-        }).fail(function(data) {
-                alert('FAILED!!!');
-        });
-        calendar.fullCalendar('unselect');
-    };
     // Documentの読み込みが完了するまで待機し、カレンダーを初期化します。
-    var calendar = $('#calendar').fullCalendar({
+    $('#calendar').fullCalendar({
         events: '/events.json',
         // ヘッダーのタイトルとボタン
         header: {
@@ -136,12 +119,7 @@ $(document).ready(function () {
                     }
                 ]
             }
-        ],
-        events: '/events.json',
-        selectable: true,
-        selectHelper: true,
-        ignoreTimezone: false,
-        select: select
+        ]
     });
     // 動的にオプションを変更する
     //$('#calendar').fullCalendar('option', 'height', 700);
