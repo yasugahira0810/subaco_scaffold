@@ -1,6 +1,8 @@
 $(document).ready(function () {
     var select = function(start, end, allDay) {
-        var title = window.prompt("title");
+//        var title = window.prompt("title");
+        var title = window.open("https://subaco-yasugahira0810.c9users.io/events/new", '_blank',
+        'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes')
         var data = {event: {title: title,
                             start: start.format(),
                             end: end.format(), 
