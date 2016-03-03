@@ -4,17 +4,20 @@
 	<%= f.label :title %>
 	<%= f.text_field :title %>
 
+	<% @event.start = params[:start] %>
 	<%= f.label :start %>
-	<%= f.datetime_field :start %>
+	<%= f.datetime_select :start %>
 
+	<% @event.end = params[:end] %>
 	<%= f.label :end %>
-	<%= f.datetime_field :end %>
+	<%= f.datetime_select :end %>
 
 	<%= f.label :allDay %>
 	<%= f.text_field :allDay %>
 
+	<% @event.user_name = User.find_by(id: session[:user_id]).name %>
 	<%= f.label :user_name %>
-	<%= f.text_field :user_name %>
+	<%= f.text_field :user_name, :readonly => true %>
 
 	<%= f.submit "Create Event", class: "btn btn-primary" %>
 <% end %>
@@ -22,6 +25,3 @@
 <%#= render 'form' %>
 
 <%= link_to 'Back', events_path %>
-
-<%= params[:start] %>
-<%= params[:end] %>
