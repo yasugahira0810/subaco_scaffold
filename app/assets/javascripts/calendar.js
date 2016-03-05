@@ -13,6 +13,7 @@ $(document).ready(function () {
 //            url: "/events",
             data: data,
         }).done(function(data) {
+                alert('SUCCESS!!!');
             calendar.fullCalendar('refetchEvents');
         }).fail(function(data) {
                 alert('FAILED!!!');
