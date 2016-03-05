@@ -3,21 +3,21 @@ $(document).ready(function () {
 //        var title = window.prompt("title");
         var title = window.open("https://subaco-yasugahira0810.c9users.io/events/new?start="+start.format()+"&end="+end.format(), '_blank',
         'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes')
-        var data = {event: {title: title,
-                            start: start.format(),
-                            end: end.format(), 
-                            allDay: false}};
-        $.ajax({
+//        var data = {event: {title: title,
+//                            start: start.format(),
+//                            end: end.format(), 
+//                            allDay: false}};
+//        $.ajax({
 // ここのtypeとかurl効いてなかった。どうもscaffoldが宜しくやってくれてしまっている。
 //            type: "POST",
 //            url: "/events",
-            data: data,
-        }).done(function(data) {
-                alert('SUCCESS!!!');
-            calendar.fullCalendar('refetchEvents');
-        }).fail(function(data) {
-                alert('FAILED!!!');
-        });
+//            data: data,
+//        }).done(function(data) {
+//                alert('SUCCESS!!!');
+//            calendar.fullCalendar('refetchEvents');
+//        }).fail(function(data) {
+//                alert('FAILED!!!');
+//        });
         calendar.fullCalendar('unselect');
     };
     // Documentの読み込みが完了するまで待機し、カレンダーを初期化します。
