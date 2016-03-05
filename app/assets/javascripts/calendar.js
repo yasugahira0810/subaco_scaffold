@@ -1,7 +1,7 @@
 $(document).ready(function () {
     var select = function(start, end, allDay) {
 //        var title = window.prompt("title");
-        var title = window.open("https://subaco-yasugahira0810.c9users.io/events/new?start="+start.format()+"&end="+end.format(), '_blank',
+        var title = window.open("https://subaco-yasugahira0810.c9users.io/events/new?start="+start.format()+"&end="+end.format(), '_new',
         'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes')
 //        var data = {event: {title: title,
 //                            start: start.format(),
