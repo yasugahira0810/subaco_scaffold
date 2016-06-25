@@ -1,26 +1,24 @@
 $(document).ready(function () {
     var select = function(start, end, allDay) {
 //        var title = window.prompt("title");
-        var title = window.open("https://subaco-yasugahira0810.c9users.io/events/new?start="+start.format()+"&end="+end.format(), '_blank',
+        var title = window.open("https://subaco-yasugahira0810.c9users.io/events/new?start="+start.format()+"&end="+end.format(), '_new',
         'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes')
-        var data = {event: {title: title,
-                            start: start.format(),
-                            end: end.format(), 
-                            allDay: false}};
-        $.ajax({
+//        var data = {event: {title: title,
+//                            start: start.format(),
+//                            end: end.format(), 
+//                            allDay: false}};
+//        $.ajax({
 // ここのtypeとかurl効いてなかった。どうもscaffoldが宜しくやってくれてしまっている。
 //            type: "POST",
 //            url: "/events",
-            data: data,
-        }).done(function(data) {
-//  alert動いてない？と思って調べてみたら、ここら辺のコードは全然実行されていなかった。
-//  でもajaxの記述がないとカレンダーが表示されない。
+//            data: data,
+//        }).done(function(data) {
 //                alert('SUCCESS!!!');
-//           calendar.fullCalendar('refetchEvents');
+//            calendar.fullCalendar('refetchEvents');
 //        }).fail(function(data) {
 //                alert('FAILED!!!');
-        });
-//        calendar.fullCalendar('unselect');
+//        });
+        calendar.fullCalendar('unselect');
     };
     // Documentの読み込みが完了するまで待機し、カレンダーを初期化します。
     var calendar = $('#calendar').fullCalendar({
