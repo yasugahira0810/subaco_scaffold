@@ -13,12 +13,14 @@ $(document).ready(function () {
 //            url: "/events",
             data: data,
         }).done(function(data) {
-                alert('SUCCESS!!!');
-            calendar.fullCalendar('refetchEvents');
-        }).fail(function(data) {
-                alert('FAILED!!!');
+//  alert動いてない？と思って調べてみたら、ここら辺のコードは全然実行されていなかった。
+//  でもajaxの記述がないとカレンダーが表示されない。
+//                alert('SUCCESS!!!');
+//           calendar.fullCalendar('refetchEvents');
+//        }).fail(function(data) {
+//                alert('FAILED!!!');
         });
-        calendar.fullCalendar('unselect');
+//        calendar.fullCalendar('unselect');
     };
     // Documentの読み込みが完了するまで待機し、カレンダーを初期化します。
     var calendar = $('#calendar').fullCalendar({
