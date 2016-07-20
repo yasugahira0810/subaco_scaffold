@@ -1,9 +1,4 @@
 $(document).ready(function () {
-	// ここで事前にselect変数作っておいて、$('#calendar').fullCalendar({});に入らないと、
-	// イベントが発火しない。
-	select = function(start, end, allDay) {
-	  window.open("events/new", '_blank', 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes')
-	}
     $('#calendar').fullCalendar({
         // ヘッダーのタイトルとボタン
         header: {
@@ -109,6 +104,9 @@ $(document).ready(function () {
         //ただこれだけだとevent/newが開かない。別の設定が必要っぽい。
 	events: '/events.json',
 	// select: これがないとイベントが発火しない。
-	select: select
+	// 参考になるかも。http://stackoverflow.com/questions/21086640/fullcalendar-newevent-in-a-new-window
+	select: function(start, end, allDay) {
+	  window.open("../events/new", '_blank', 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes');
+	}
 	});
 });
