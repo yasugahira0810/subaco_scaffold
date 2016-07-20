@@ -1,4 +1,6 @@
 $(document).ready(function () {
+	// ここで事前にselect変数作っておいて、$('#calendar').fullCalendar({});に入らないと、
+	// イベントが発火しない。
 	select = function(start, end, allDay) {
 	  window.open("events/new", '_blank', 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes')
 	}
@@ -103,9 +105,10 @@ $(document).ready(function () {
         selectable: true,
         selectHelper: true,
         ignoreTimezone: false,
-	//登録したデータを表示するためにはこの設定が必須。
+	//events: 登録したデータを表示するためにはこの設定が必須。
         //ただこれだけだとevent/newが開かない。別の設定が必要っぽい。
 	events: '/events.json',
+	// select: これがないとイベントが発火しない。
 	select: select
 	});
 });
