@@ -97,39 +97,11 @@ $(document).ready(function () {
         // event追加を許可
         selectable: true,
         // イベントソース
-//        events: '/events.json',
         selectable: true,
         selectHelper: true,
         ignoreTimezone: false,
-//        select: select
-        events: function(start, end, timezone, callback) {
-          $.ajax({
-              url: 'myxmlfeed.php',
-              dataType: 'xml',
-              data: {
-                  // our hypothetical feed requires UNIX timestamps
-                  start: start.unix(),
-                  end: end.unix()
-              },
-              success: function(doc) {
-                  var events = [];
-                  $(doc).find('event').each(function() {
-                      events.push({
-                          title: $(this).attr('title'),
-                          start: $(this).attr('start') // will be parsed
-                      });
-                  });
-                  callback(events);
-              }
-          });
-      }
+	//登録したデータを表示するためにはこの設定が必須。
+        //ただこれだけだとevent/newが開かない。別の設定が必要っぽい。
+	events: '/events.json'
     });
-    // 動的にオプションを変更する
-    //$('#calendar').fullCalendar('option', 'height', 700);
- 
-    // カレンダーをレンダリング。表示切替時などに使用
-    //$('#calendar').fullCalendar('render');
- 
-    // カレンダーを破棄（イベントハンドラや内部データも破棄する）
-    //$('#calendar').fullCalendar('destroy')
 });
