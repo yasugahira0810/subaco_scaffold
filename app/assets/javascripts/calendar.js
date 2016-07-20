@@ -1,4 +1,7 @@
 $(document).ready(function () {
+	select = function(start, end, allDay) {
+	  window.open("events/new", '_blank', 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes')
+	}
     $('#calendar').fullCalendar({
         // ヘッダーのタイトルとボタン
         header: {
@@ -102,6 +105,7 @@ $(document).ready(function () {
         ignoreTimezone: false,
 	//登録したデータを表示するためにはこの設定が必須。
         //ただこれだけだとevent/newが開かない。別の設定が必要っぽい。
-	events: '/events.json'
-    });
+	events: '/events.json',
+	select: select
+	});
 });
