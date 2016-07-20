@@ -1,5 +1,27 @@
 $(document).ready(function () {
-    $('#calendar').fullCalendar({
+    var select = function(start, end, allDay) {
+//        var title = window.prompt("title");
+        var title = window.open("https://subaco-yasugahira0810.c9users.io/events/new?start="+start.format()+"&end="+end.format(), '_new',
+        'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes')
+//        var data = {event: {title: title,
+//                            start: start.format(),
+//                            end: end.format(), 
+//                            allDay: false}};
+//        $.ajax({
+// ここのtypeとかurl効いてなかった。どうもscaffoldが宜しくやってくれてしまっている。
+//            type: "POST",
+//            url: "/events",
+//            data: data,
+//        }).done(function(data) {
+//                alert('SUCCESS!!!');
+//            calendar.fullCalendar('refetchEvents');
+//        }).fail(function(data) {
+//                alert('FAILED!!!');
+//        });
+        calendar.fullCalendar('unselect');
+    };
+    // Documentの読み込みが完了するまで待機し、カレンダーを初期化します。
+    var calendar = $('#calendar').fullCalendar({
         // ヘッダーのタイトルとボタン
         header: {
             // title, prev, next, prevYear, nextYear, today
@@ -97,32 +119,11 @@ $(document).ready(function () {
         // event追加を許可
         selectable: true,
         // イベントソース
-//        events: '/events.json',
+        events: '/events.json',
         selectable: true,
         selectHelper: true,
         ignoreTimezone: false,
-//        select: select
-        events: function(start, end, timezone, callback) {
-          $.ajax({
-              url: 'myxmlfeed.php',
-              dataType: 'xml',
-              data: {
-                  // our hypothetical feed requires UNIX timestamps
-                  start: start.unix(),
-                  end: end.unix()
-              },
-              success: function(doc) {
-                  var events = [];
-                  $(doc).find('event').each(function() {
-                      events.push({
-                          title: $(this).attr('title'),
-                          start: $(this).attr('start') // will be parsed
-                      });
-                  });
-                  callback(events);
-              }
-          });
-      }
+        select: select
     });
     // 動的にオプションを変更する
     //$('#calendar').fullCalendar('option', 'height', 700);
