@@ -1,7 +1,10 @@
 <!--子ウインドウの閉じ方は、子ウインドウで勝手に閉じる方法と、親ウインドウで閉じる方法がある。-->
 <!--ここでは、子ウインドウが勝手に閉じる実装をしている。-->
 <script>
-javascript:window.close();
+var pwin=window.opener;
+pwin.location.reload();
+pwin.focus();
+window.close();
 </script>
 <p id="notice"><%= notice %></p>
 
