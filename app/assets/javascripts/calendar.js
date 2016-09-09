@@ -102,11 +102,14 @@ $(document).ready(function () {
         ignoreTimezone: false,
 	//events: 登録したデータを表示するためにはこの設定が必須。
         //ただこれだけだとevent/newが開かない。別の設定が必要っぽい。
-	events: '/events.json',
-	// select: これがないとイベントが発火しない。
-	// 参考になるかも。http://stackoverflow.com/questions/21086640/fullcalendar-newevent-in-a-new-window
-	select: function(start, end, allDay) {
-	  window.open("../events/new?start="+start.format()+"&end="+end.format(), '_blank', 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes');
-	}
+       events: '/events.json',
+       // select: これがないとイベントが発火しない。
+       // 参考になるかも。http://stackoverflow.com/questions/21086640/fullcalendar-newevent-in-a-new-window
+       select: function(start, end, allDay) {
+           window.open("../events/new?start="+start.format()+"&end="+end.format(), '_blank', 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes');
+       },
+        eventClick: function(calEvent, jsEvent, view) {
+            alert("AHHHHHHHHHHHHHHHH");
+        }
 	});
 });
