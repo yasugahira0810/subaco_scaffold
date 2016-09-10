@@ -109,7 +109,8 @@ $(document).ready(function () {
            window.open("../events/new?start="+start.format()+"&end="+end.format(), '_blank', 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes');
        },
         eventClick: function(calEvent, jsEvent, view) {
-            alert("AHHHHHHHHHHHHHHHH");
+            window.open("../events/"+calEvent.id, '_blank', 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes');
+            return false;
         }
 	});
 });
